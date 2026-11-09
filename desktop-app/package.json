@@ -1,0 +1,42 @@
+{
+  "name": "restaurant-software-demo-desktop",
+  "version": "1.0.0",
+  "description": "Restaurant Management Software Demo desktop app with backend license validation",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "com.restaurantsoftware.demo",
+    "productName": "RestaurantSoftware",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "renderer/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": "nsis",
+      "artifactName": "RestaurantSoftware-Setup.exe"
+    },
+    "linux": {
+      "target": "AppImage",
+      "artifactName": "RestaurantSoftware.AppImage",
+      "category": "Utility"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "deleteAppDataOnUninstall": true
+    }
+  },
+  "devDependencies": {
+    "electron": "^31.7.1",
+    "electron-builder": "^24.13.0"
+  }
+}
